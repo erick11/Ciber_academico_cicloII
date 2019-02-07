@@ -25,8 +25,7 @@ import arreglos.ArregloEmpleado;
 import clases.Empleado;
 import java.awt.Font;
 
-public class PanelEmpleado extends JPanel implements ActionListener,
-                ItemListener {
+public class PanelEmpleado extends JPanel implements ActionListener, ItemListener {
 
         // Componentes de la GUI
         private JPanel pnlDatos;
