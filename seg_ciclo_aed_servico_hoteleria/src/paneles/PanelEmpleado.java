@@ -50,7 +50,7 @@ public class PanelEmpleado extends JPanel implements ActionListener, ItemListene
 
         // Clase que administra el arreglo
         ArregloEmpleado arEmp = new ArregloEmpleado();
-
+        
         public PanelEmpleado() {
                 arEmp.cargarData();
 
@@ -98,8 +98,7 @@ public class PanelEmpleado extends JPanel implements ActionListener, ItemListene
 
                 cboTipo = new JComboBox();
                 cboTipo.setEnabled(false);
-                cboTipo.setModel(new DefaultComboBoxModel(new String[] {
-                                "Administrador", "Empleado" }));
+                cboTipo.setModel(new DefaultComboBoxModel(new String[] {"Administrador", "Empleado" }));
                 cboTipo.setBounds(384, 61, 164, 20);
                 pnlDatos.add(cboTipo);
 
@@ -121,8 +120,7 @@ public class PanelEmpleado extends JPanel implements ActionListener, ItemListene
                 scrollTbEmpleado.setBounds(23, 244, 558, 142);
                 this.add(scrollTbEmpleado);
 
-                modelTbEmpleado = new DefaultTableModel(new Object[][] {}, new String[] {
-                                "Codigo", "Nombres", "Apellidos", "Tipo" });
+                modelTbEmpleado = new DefaultTableModel(new Object[][] {}, new String[] {"Codigo", "Nombres", "Apellidos", "Tipo"});
                 tb_Empleados = new JTable();
                 tb_Empleados.setModel(modelTbEmpleado);
                 scrollTbEmpleado.setViewportView(tb_Empleados);
@@ -139,7 +137,7 @@ public class PanelEmpleado extends JPanel implements ActionListener, ItemListene
                 cboSeleccionarOpcion = new JComboBox();
                 cboSeleccionarOpcion.addItemListener(this);
                 cboSeleccionarOpcion.setModel(new DefaultComboBoxModel(new String[] {
-                                "Eligir una Opcion", "Ingresar", "Modificar", "Eliminar" }));
+                                     "Eligir una Opcion", "Ingresar", "Modificar", "Eliminar" }));
                 cboSeleccionarOpcion.setBounds(228, 51, 115, 20);
                 this.add(cboSeleccionarOpcion);
 
@@ -189,6 +187,7 @@ public class PanelEmpleado extends JPanel implements ActionListener, ItemListene
                 else if (opcion == 1) {
                         lblCodigo.setEnabled(true);
                         txtCodigo.setEnabled(false);
+                        txtCodigo.setText(cod_auto());
                         lblNombres.setEnabled(true);
                         txtNombres.setEnabled(true);
                         lblApellidos.setEnabled(true);
@@ -197,6 +196,7 @@ public class PanelEmpleado extends JPanel implements ActionListener, ItemListene
                         cboTipo.setEnabled(true);
                         lblClave.setEnabled(true);
                         txtClave.setEnabled(true);
+                        
                 }
                 else if (opcion == 2) {
                         // ocultarModificar();

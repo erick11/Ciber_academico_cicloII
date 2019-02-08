@@ -1,6 +1,7 @@
 package arreglos;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -87,23 +88,33 @@ public class ArregloCliente {
         }
         }
 
-        public void cargarData() {
-                try {
-                        FileReader fr = new FileReader("Clientes.txt");
-                        BufferedReader br = new BufferedReader(fr);
-                        String linea;
-                        while ((linea = br.readLine()) != null) {
-                                StringTokenizer st = new StringTokenizer(linea, ",");
-                                Cliente cli = new Cliente();
-                                cli.setCodigo(Integer.parseInt(st.nextToken()));
-                                cli.setNombres(st.nextToken());
-                                cli.setApellidos((st.nextToken()));
-                                cli.setTelefono(st.nextToken());
-                                arListCliente.add(cli);
-                        }
-                        br.close();
-                } catch (Exception e) {
-                        System.out.println("ArregloCliente.cargarData(): "+e.getMessage());
-                }
-        }
+	public void cargarData() {
+
+		try {
+
+			File file = new File("Empleados.txt");
+
+			if (file.exists()) {
+
+				FileReader fr = new FileReader("Clientes.txt");
+				BufferedReader br = new BufferedReader(fr);
+				String linea;
+				while ((linea = br.readLine()) != null) {
+					StringTokenizer st = new StringTokenizer(linea, ",");
+					Cliente cli = new Cliente();
+					cli.setCodigo(Integer.parseInt(st.nextToken()));
+					cli.setNombres(st.nextToken());
+					cli.setApellidos((st.nextToken()));
+					cli.setTelefono(st.nextToken());
+					arListCliente.add(cli);
+				}
+				br.close();
+
+			} else {
+				file.createNewFile();
+			}
+		} catch (Exception e) {
+			System.out.println("ArregloCliente.cargarData(): " + e.getMessage());
+		}
+	}
 }
